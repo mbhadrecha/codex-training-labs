@@ -1,0 +1,627 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+4 0 obj
+<< /Length 1215 >>
+stream
+q
+0.96 0.93 0.90 rg 0 0 612 792 re f
+0.92 0.28 0.30 rg 40 560 250 170 re f
+0.99 0.50 0.19 rg 280 590 280 110 re f
+0.10 0.10 0.14 rg 320 460 220 90 re f
+1 1 1 rg /F2 30 Tf 58 675 Td (Myntra-Style Store) Tj
+0.12 0.12 0.16 rg /F2 18 Tf 58 640 Td (Codebase Summary) Tj
+0.25 0.25 0.28 rg /F1 12 Tf 58 612 Td (Evidence-based onboarding guide across backend and frontend.) Tj
+0.12 0.12 0.16 rg /F2 13 Tf 330 515 Td (Storefront Layers) Tj
+1 1 1 rg /F1 11 Tf 330 495 Td (React page -> fetch -> Express API -> curated catalog JSON response) Tj
+0.12 0.12 0.16 RG 4 w 108 448 88 96 re S
+0.12 0.12 0.16 RG 4 w 126 540 m 126 566 178 566 178 540 c S
+0.92 0.28 0.30 rg 122 466 60 48 re f
+1 1 1 rg /F2 18 Tf 137 488 Td (SKU) Tj
+0.92 0.28 0.30 rg 300 330 95 120 re f
+0.99 0.50 0.19 rg 312 398 71 40 re f
+1 1 1 rg 316 372 63 8 re f
+1 1 1 rg 316 356 48 8 re f
+0.16 0.18 0.25 rg 410 330 95 120 re f
+0.45 0.52 0.72 rg 422 398 71 40 re f
+1 1 1 rg 426 372 63 8 re f
+1 1 1 rg 426 356 48 8 re f
+0.92 0.28 0.30 rg 190 250 95 120 re f
+0.75 0.18 0.33 rg 202 318 71 40 re f
+1 1 1 rg 206 292 63 8 re f
+1 1 1 rg 206 276 48 8 re f
+0.25 0.25 0.28 rg /F1 11 Tf 58 92 Td (Generated from Documentation-prompt.md with illustrated runtime diagrams.) Tj
+Q
+endstream
+endobj
+5 0 obj
+<< /Length 2456 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.12 0.12 0.16 rg /F2 22 Tf 50 740 Td (Runtime Storyboard) Tj
+0.35 0.35 0.38 rg /F1 12 Tf 50 718 Td (Primary execution path from Vite boot to rendered product cards.) Tj
+0.99 0.95 0.89 rg 55 580 150 90 re f
+0.15 0.15 0.17 RG 1 w 55 580 150 90 re S
+0.12 0.12 0.16 rg /F2 14 Tf 67 646 Td (Browser + Vite) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 67 626 Td (index.html) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 67 610 Td (src/main.jsx) Tj
+0.95 0.92 0.98 rg 230 580 150 90 re f
+0.15 0.15 0.17 RG 1 w 230 580 150 90 re S
+0.12 0.12 0.16 rg /F2 14 Tf 242 646 Td (React App) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 242 626 Td (App.jsx) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 242 610 Td (useEffect\(fetch\)) Tj
+0.91 0.95 0.99 rg 405 580 150 90 re f
+0.15 0.15 0.17 RG 1 w 405 580 150 90 re S
+0.12 0.12 0.16 rg /F2 14 Tf 417 646 Td (Express API) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 417 626 Td (backend/index.js) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 417 610 Td (GET /api/products) Tj
+0.98 0.92 0.92 rg 145 410 150 90 re f
+0.15 0.15 0.17 RG 1 w 145 410 150 90 re S
+0.12 0.12 0.16 rg /F2 14 Tf 157 476 Td (State Update) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 157 456 Td (setBanner) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 157 440 Td (setProducts) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 157 424 Td (setStatus) Tj
+0.92 0.97 0.93 rg 320 410 180 90 re f
+0.15 0.15 0.17 RG 1 w 320 410 180 90 re S
+0.12 0.12 0.16 rg /F2 14 Tf 332 476 Td (Rendered UI) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 332 456 Td (hero banner) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 332 440 Td (categories) Tj
+0.30 0.30 0.33 rg /F1 11 Tf 332 424 Td (ProductCard grid) Tj
+0.20 0.20 0.24 RG 2 w 205 625 m 230 625 l S
+0.20 0.20 0.24 RG 2 w 380 625 m 405 625 l S
+0.20 0.20 0.24 RG 2 w 480 580 m 400 500 l S
+0.20 0.20 0.24 RG 2 w 220 500 m 230 500 l S
+0.20 0.20 0.24 RG 2 w 295 455 m 320 455 l S
+0.20 0.20 0.24 RG 2 w 223 631 m 230 625 l 223 619 l S
+0.20 0.20 0.24 RG 2 w 398 631 m 405 625 l 398 619 l S
+0.20 0.20 0.24 RG 2 w 408 505 m 400 500 l 406 492 l S
+0.20 0.20 0.24 RG 2 w 223 506 m 230 500 l 223 494 l S
+0.20 0.20 0.24 RG 2 w 313 461 m 320 455 l 313 449 l S
+0.12 0.12 0.16 rg /F2 16 Tf 50 320 Td (Key observations) Tj
+0.28 0.28 0.32 rg /F1 12 Tf 60 294 Td (- Single backend file owns data, route, and transformation logic.) Tj
+0.28 0.28 0.32 rg /F1 12 Tf 60 270 Td (- Single frontend page owns fetch logic, layout, and component composition.) Tj
+0.28 0.28 0.32 rg /F1 12 Tf 60 246 Td (- One endpoint powers hero copy, category derivation, and product cards.) Tj
+Q
+endstream
+endobj
+6 0 obj
+<< /Length 3773 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.12 0.12 0.16 rg /F2 18 Tf 50 736 Td (Myntra-Style Store Codebase Summary) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 704 Td (Internal inventory) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 676 Td (Backend entry points) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 659 Td (- `backend/index.js` is the backend entry point. It creates the Express app, defines the) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 645 Td (  in-memory product catalog, exposes `GET /api/products`, and starts listening on) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 631 Td (  `process.env.PORT || 5033`.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 609 Td (Frontend entry points) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 592 Td (- `frontend/src/main.jsx` bootstraps React and renders `<App />` inside `StrictMode`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 578 Td (- `frontend/src/App.jsx` contains the actual application shell, fetch logic, view) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 564 Td (  composition, and a nested `ProductCard` component.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 542 Td (Route definitions) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 525 Td (- `backend/index.js`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 511 Td (  - `GET /api/products`) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 489 Td (API client definitions) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 472 Td (- There is no dedicated API client module.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 458 Td (- `frontend/src/App.jsx` calls `fetch\("http://localhost:5033/api/products"\)` directly) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 444 Td (  inside a `useEffect`.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 422 Td (Main state management files) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 405 Td (- `frontend/src/App.jsx`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 391 Td (  - `products`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 377 Td (  - `banner`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 363 Td (  - `status`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 349 Td (- There is no Redux, Context, Zustand, or custom hooks layer in the inspected source.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 327 Td (Main config and env files) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 310 Td (- `backend/package.json` sets `index.js` as the main file and exposes `npm start`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 296 Td (- `frontend/package.json` provides `dev`, `build`, `lint`, and `preview` scripts.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 282 Td (- `frontend/vite.config.js` uses the default React Vite plugin with no proxy or custom) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 268 Td (  config.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 254 Td (- There is no `.env` file in the inspected project, and the frontend hardcodes the backend) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 240 Td (  URL.) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 218 Td (1. High-level project overview) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 190 Td (- Fact: This repository is a compact full-stack storefront demo with an Express backend) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 176 Td (  and a React + Vite frontend.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 162 Td (- Fact: The backend serves a curated fashion-and-lifestyle catalog from an in-memory array) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 148 Td (  declared directly in `backend/index.js`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 134 Td (- Fact: The frontend renders a branded landing page with navigation anchors, a hero) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 120 Td (  section, category cards, product spotlight cards, and a footer with onboarding hints.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 106 Td (- Inference: The project is designed as a polished training/demo app rather than a) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 92 Td (  production e-commerce system, because the data layer, API surface, and frontend routing) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 78 Td (  are intentionally minimal.) Tj
+Q
+endstream
+endobj
+7 0 obj
+<< /Length 3864 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.12 0.12 0.16 rg /F2 12 Tf 50 736 Td (Repository boundaries) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 719 Td (- `backend/`: Express API and sample data.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 705 Td (- `frontend/`: Vite + React single-page UI.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 691 Td (- `docs/`: not originally present in the repo; this summary is being added there as a) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 677 Td (  documentation artifact.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 655 Td (Primary runtime story) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 638 Td (- Fact: The main user journey is a single page load.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 624 Td (- Fact: On mount, `App.jsx` fetches catalog data from `GET /api/products`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 610 Td (- Fact: The backend formats prices using `Intl.NumberFormat\("en-IN", ...\)` before) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 596 Td (  returning the response.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 582 Td (- Fact: The frontend stores that response in state, derives categories with `useMemo`, and) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 568 Td (  renders cards and status text from the fetched payload.) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 546 Td (2. Backend explanation) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 518 Td (Folder-by-folder) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 501 Td (- `backend/package.json`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 487 Td (  - Fact: The backend uses `express` and `cors`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 473 Td (  - Fact: The only script is `npm start`, which runs `node index.js`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 459 Td (- `backend/index.js`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 445 Td (  - Fact: This file contains all backend logic: app setup, middleware, data, route handler,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 431 Td (response shaping, and server startup.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 417 Td (  - Fact: There are no separate `routes/`, `controllers/`, `services/`, `models/`, or) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 403 Td (`data/` folders in this repo.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 381 Td (Startup flow) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 364 Td (1. `npm start` runs `node index.js` from `backend/package.json`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 350 Td (2. `backend/index.js` imports `express` and `cors`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 336 Td (3. It creates the app and determines the port with `process.env.PORT || 5033`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 322 Td (4. It enables `cors\(\)` and `express.json\(\)`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 308 Td (5. It defines the in-memory `products` array.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 294 Td (6. It registers `GET /api/products`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 280 Td (7. It starts listening and logs `Catalog API listening on http://localhost:${PORT}`.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 258 Td (Middleware) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 241 Td (- Fact: `cors\(\)` is globally enabled.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 227 Td (- Fact: `express.json\(\)` is globally enabled.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 213 Td (- Fact: There is no custom error middleware and no 404 fallback route.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 199 Td (- Inference: `express.json\(\)` is defensive scaffolding for future write endpoints, because) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 185 Td (  the current API only serves a read-only `GET`.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 163 Td (Routes, controllers, services, models) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 138 Td (#### Routes) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 124 Td (- `GET /api/products`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 110 Td (  - Defined inline in `backend/index.js`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 96 Td (  - No route module abstraction exists.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 74 Td (#### Controllers) Tj
+Q
+endstream
+endobj
+8 0 obj
+<< /Length 4281 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.22 0.22 0.25 rg /F1 10 Tf 50 736 Td (- Fact: There is no separate controller layer.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 722 Td (- Inference: The anonymous route handler in `app.get\("/api/products", ...\)` is effectively) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 708 Td (  acting as both controller and service.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 686 Td (#### Services) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 672 Td (- Fact: There is no separate service module.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 658 Td (- Fact: The route handler maps over `products` and augments each item with) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 644 Td (  `priceFormatted`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 630 Td (- Fact: It uses `new Intl.NumberFormat\("en-IN", { style: "currency", currency:) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 616 Td (  product.currency }\)` to produce locale-aware pricing strings.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 594 Td (#### Models / schemas) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 580 Td (- Fact: There are no schemas or ORM models.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 566 Td (- Fact: The product shape is implied by plain JavaScript objects in the `products` array.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 552 Td (- Fact: Each product currently includes `id`, `name`, `price`, `currency`, `badge`,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 538 Td (  `category`, `description`, and `delivery`.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 516 Td (Request lifecycle) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 499 Td (1. The browser requests `http://localhost:5033/api/products`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 485 Td (2. Express matches the inline `app.get\("/api/products", ...\)` handler.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 471 Td (3. The handler maps the in-memory `products` array into a `curated` array.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 457 Td (4. Each product is copied and extended with `priceFormatted`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 443 Td (5. The handler returns JSON in the shape `{ banner, curated }`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 429 Td (6. The browser receives the payload and the frontend updates state.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 407 Td (Dependency flow) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 390 Td (- `backend/index.js`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 376 Td (  - depends on `express`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 362 Td (  - depends on `cors`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 348 Td (  - contains the data source) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 334 Td (  - contains the transformation logic) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 320 Td (  - contains the route definition) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 306 Td (- Inference: This is the simplest possible vertical slice, which makes onboarding fast but) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 292 Td (  leaves little separation for future expansion.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 270 Td (Files to read first) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 253 Td (- `backend/index.js`: the single most important backend file because it contains the) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 239 Td (  entire API surface and data contract.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 225 Td (- `backend/package.json`: confirms the backend runtime and dependency versions.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 203 Td (Risks) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 186 Td (- Fact: All data is in-memory, so there is no persistence or external data source.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 172 Td (- Fact: There is only one API endpoint, which means the app has no product detail,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 158 Td (  filtering, search, or cart APIs.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 144 Td (- Fact: There is no validation, logging middleware, error middleware, or test coverage in) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 130 Td (  the inspected source.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 116 Td (- Fact: The response banner contains mojibake characters: `Festival Drop ï¿½ Free COD ï¿½) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 102 Td (  Express delivery`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 88 Td (- Inference: If the catalog grows, `index.js` will become harder to maintain because data,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 74 Td (  formatting, routing, and startup are all coupled together.) Tj
+Q
+endstream
+endobj
+9 0 obj
+<< /Length 4125 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.12 0.12 0.16 rg /F2 14 Tf 50 736 Td (3. Frontend explanation) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 708 Td (Folder-by-folder) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 691 Td (- `frontend/package.json`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 677 Td (  - Fact: Uses React 19, React DOM 19, Vite 8, and ESLint 9.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 663 Td (- `frontend/vite.config.js`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 649 Td (  - Fact: Uses `@vitejs/plugin-react` with default configuration.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 635 Td (  - Fact: No development proxy is configured.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 621 Td (- `frontend/src/main.jsx`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 607 Td (  - Fact: Bootstraps the React app.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 593 Td (- `frontend/src/App.jsx`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 579 Td (  - Fact: Holds almost all application behavior and markup.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 565 Td (  - Fact: Declares `navLinks`, `architecturePillars`, `ProductCard`, and `App` in the same) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 551 Td (file.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 537 Td (- `frontend/src/App.css`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 523 Td (  - Fact: Contains most component-level styling for layout sections, cards, hero, footer,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 509 Td (and responsive behavior.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 495 Td (- `frontend/src/index.css`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 481 Td (  - Fact: Sets theme variables, imports fonts from Google Fonts, and establishes base) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 467 Td (styles.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 453 Td (- `frontend/public/`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 439 Td (  - Fact: Contains shared static assets such as `icons.svg` and `favicon.svg`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 425 Td (- `frontend/src/assets/`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 411 Td (  - Fact: Contains bundled assets including `hero.png`, `react.svg`, and `vite.svg`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 397 Td (  - Fact: `hero.png` is present in the repo but is not imported or referenced from) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 383 Td (`App.jsx`.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 361 Td (Bootstrap flow) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 344 Td (1. Vite serves `frontend/index.html`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 330 Td (2. `frontend/src/main.jsx` mounts the React tree.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 316 Td (3. `App.jsx` initializes `products`, `banner`, and `status`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 302 Td (4. The initial `useEffect` calls the backend endpoint exactly once on mount.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 288 Td (5. If the response is successful, the app stores `banner` and `curated` products and) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 274 Td (   marks `status` as `ready`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 260 Td (6. If the request fails, the app logs the error and marks `status` as `error`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 246 Td (7. `useMemo` derives up to four distinct categories from the fetched products.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 224 Td (Routing) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 207 Td (- Fact: There is no client-side router.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 193 Td (- Fact: Navigation is in-page anchor navigation using `href="#collections"`,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 179 Td (  `href="#architecture"`, `href="#stories"`, and `href="#docs"`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 165 Td (- Inference: The anchors are there to simulate section-based navigation in a landing page) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 151 Td (  rather than true page-level navigation.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 129 Td (Pages, components, hooks, state, API layer) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 104 Td (#### Pages / components) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 90 Td (- `App`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 76 Td (  - Fact: Acts as the only page component.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 62 Td (  - Fact: Renders the header, hero, category panel, product spotlight section, architecture) Tj
+Q
+endstream
+endobj
+10 0 obj
+<< /Length 3959 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.22 0.22 0.25 rg /F1 10 Tf 50 736 Td (section, and footer.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 722 Td (- `ProductCard`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 708 Td (  - Fact: Nested inside `App.jsx`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 694 Td (  - Fact: Receives a `product` prop and displays `badge`, `priceFormatted`, `description`,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 680 Td (`category`, and `delivery`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 666 Td (  - Fact: Uses a decorative empty `div.product-image` instead of a real product image.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 644 Td (#### Hooks) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 630 Td (- `useState`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 616 Td (  - Fact: Tracks `products`, `banner`, and `status`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 602 Td (- `useEffect`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 588 Td (  - Fact: Triggers the initial catalog fetch.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 574 Td (- `useMemo`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 560 Td (  - Fact: Derives the `categories` array from unique product categories.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 538 Td (#### State) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 524 Td (- `products`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 510 Td (  - Fact: Drives the product grid and category derivation.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 496 Td (- `banner`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 482 Td (  - Fact: Drives the first hero highlight chip.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 468 Td (- `status`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 454 Td (  - Fact: Controls hero status text, the spotlight status pill, and the error/loading) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 440 Td (states.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 418 Td (#### API layer) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 404 Td (- Fact: There is no shared client, hook, or service abstraction.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 390 Td (- Fact: `fetch\("http://localhost:5033/api/products"\)` is hardcoded in `App.jsx`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 376 Td (- Fact: Because there is no Vite proxy and no env-driven base URL, frontend and backend) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 362 Td (  coordination currently depends on that fixed port.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 340 Td (Render and data flow) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 323 Td (1. Header renders immediately from static `navLinks`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 309 Td (2. Hero renders with static marketing copy and dynamic `banner`/`status`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 295 Td (3. When the fetch succeeds, `products` is populated from `data.curated`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 281 Td (4. `categories` is recomputed from the current product list.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 267 Td (5. The category panel renders live categories if data exists, otherwise a fallback array) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 253 Td (   of `["Ethnic", "Western", "Gadgets", "Beauty"]`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 239 Td (6. The spotlight section renders loading text, an error message, or mapped `ProductCard`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 225 Td (   instances depending on `status`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 211 Td (7. The architecture section renders static cards from `architecturePillars`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 197 Td (8. The footer renders static onboarding notes and run instructions.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 175 Td (Component hierarchy) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 150 Td (main.jsx) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 138 Td (  -> App) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 126 Td (     -> header.main-header) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 114 Td (        -> logo) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 102 Td (        -> nav links) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 90 Td (        -> CTA button) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 78 Td (     -> main) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 66 Td (        -> section.hero) Tj
+Q
+endstream
+endobj
+11 0 obj
+<< /Length 3954 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 736 Td (           -> hero-content) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 724 Td (           -> hero-panel) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 712 Td (        -> section.category-panel) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 700 Td (           -> category cards) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 688 Td (        -> section.products-section) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 676 Td (           -> products-header) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 664 Td (           -> status text \(conditional\)) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 652 Td (           -> product-grid) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 640 Td (              -> ProductCard x N) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 628 Td (        -> section.tech-section) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 616 Td (           -> architecture pillar cards) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 604 Td (     -> footer.main-footer) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 576 Td (Files to read first) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 559 Td (- `frontend/src/App.jsx`: contains the live runtime behavior and is the highest-value) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 545 Td (  frontend file.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 531 Td (- `frontend/src/App.css`: maps each rendered section to its layout and visual treatment.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 517 Td (- `frontend/src/main.jsx`: confirms the actual entry point.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 503 Td (- `frontend/vite.config.js`: useful to verify there is no dev proxy or special environment) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 489 Td (  setup.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 475 Td (- `frontend/package.json`: confirms scripts and framework versions.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 453 Td (Risks) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 436 Td (- Fact: `App.jsx` combines page composition, data fetching, derived state, copywriting,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 422 Td (  and component definitions in one file.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 408 Td (- Fact: The frontend hardcodes `http://localhost:5033/api/products` instead of using) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 394 Td (  environment configuration.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 380 Td (- Fact: `frontend/src/index.css` imports Google Fonts over the network, which can affect) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 366 Td (  rendering in offline or restricted environments.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 352 Td (- Fact: Multiple strings contain encoding artifacts such as `Login Â· Explore`, `Inspired) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 338 Td (  by Myntra Â· Built for India`, and `Loading productsâ?¦`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 324 Td (- Fact: `hero.png` exists in `src/assets` but is unused, which suggests dead or incomplete) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 310 Td (  design work.) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 288 Td (4. Frontend-backend flow) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 260 Td (API definitions) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 243 Td (- `GET /api/products`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 229 Td (  - Response shape:) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 215 Td (    - `banner: string`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 201 Td (    - `curated: Product[]`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 187 Td (  - Each `Product` includes the original fields plus `priceFormatted`.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 165 Td (Backend route mapping) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 148 Td (- `frontend/src/App.jsx`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 134 Td (  - `useEffect\(fetchCatalog\)` calls `GET /api/products`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 120 Td (- `backend/index.js`) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 106 Td (  - `app.get\("/api/products", ...\)` handles the request) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 92 Td (  - response is shaped inline and returned with `res.json\(...\)`) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 70 Td (Response handling) Tj
+Q
+endstream
+endobj
+12 0 obj
+<< /Length 4039 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.22 0.22 0.25 rg /F1 10 Tf 50 736 Td (- Fact: The frontend expects `data.banner` and `data.curated`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 722 Td (- Fact: `setBanner\(data.banner\)` feeds the hero highlight.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 708 Td (- Fact: `setProducts\(data.curated\)` feeds both the category derivation and the product) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 694 Td (  grid.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 680 Td (- Fact: `setStatus\("ready"\)` switches the page from loading state to ready state.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 658 Td (Concrete end-to-end journeys) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 633 Td (#### Journey 1: Initial storefront load) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 619 Td (1. User opens the frontend.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 605 Td (2. `App` mounts and runs `fetchCatalog\(\)`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 591 Td (3. The browser requests `GET /api/products`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 577 Td (4. The backend enriches each product with `priceFormatted`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 563 Td (5. The frontend stores `banner` and `products`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 549 Td (6. The hero, category cards, and product spotlight all re-render with live data.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 527 Td (#### Journey 2: Successful category rendering) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 513 Td (1. The product response arrives with categories such as `Ethnic`, `Western`, `Gadgets`,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 499 Td (   and `Accessories`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 485 Td (2. `useMemo` builds a `Set` from `products.map\(\(product\) => product.category\)`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 471 Td (3. The resulting unique categories are sliced to the first four values.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 457 Td (4. The category panel renders those categories instead of the fallback hardcoded set.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 435 Td (#### Journey 3: Backend unavailable) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 421 Td (1. The frontend fetch fails or returns a non-OK status.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 407 Td (2. `fetchCatalog\(\)` throws or enters the `catch`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 393 Td (3. The app logs the error to the console.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 379 Td (4. `status` becomes `error`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 365 Td (5. The hero panel switches to `Catalog unreachable`, and the product section prompts the) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 351 Td (   user to start the backend with `npm start`.) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 329 Td (5. Execution flow) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 293 Td (Frontend boot) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 281 Td (  index.html) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 269 Td (    -> src/main.jsx) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 257 Td (      -> App.jsx) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 245 Td (        -> useEffect\(fetchCatalog\)) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 233 Td (          -> GET http://localhost:5033/api/products) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 221 Td (            -> backend/index.js) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 209 Td (              -> map products) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 197 Td (              -> add priceFormatted) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 185 Td (              -> return { banner, curated }) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 173 Td (        -> setBanner) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 161 Td (        -> setProducts) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 149 Td (        -> setStatus\("ready"\)) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 137 Td (        -> render hero, categories, cards, architecture, footer) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 109 Td (6. Architecture summary) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 81 Td (- Fact: The backend is intentionally flat: one file, one dataset, one route.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 67 Td (- Fact: The frontend is also mostly flat, with one page component and one nested) Tj
+Q
+endstream
+endobj
+13 0 obj
+<< /Length 3694 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.22 0.22 0.25 rg /F1 10 Tf 50 736 Td (  presentational component.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 722 Td (- Fact: The integration contract is tiny and easy to understand because the frontend only) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 708 Td (  depends on one JSON response shape.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 694 Td (- Inference: This repo is optimized for quick onboarding and UI iteration, not for multi-) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 680 Td (  team ownership or long-term feature growth.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 666 Td (- Inference: The first scalability refactor would likely be splitting the backend into) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 652 Td (  route/service/data files and moving frontend fetch logic into a reusable API module.) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 630 Td (7. Onboarding guide) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 602 Td (Fastest reading order) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 585 Td (1. Read `backend/index.js` to understand the exact API contract and real backend port.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 571 Td (2. Read `frontend/src/App.jsx` to see how the page consumes that contract.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 557 Td (3. Read `frontend/src/App.css` to map the major UI sections to their visual intent.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 543 Td (4. Read `frontend/src/index.css` and `frontend/vite.config.js` to understand global) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 529 Td (   styling and build setup.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 515 Td (5. Read `frontend/package.json` and `backend/package.json` to confirm framework/runtime) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 501 Td (   versions.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 479 Td (Productive first tasks) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 462 Td (- Extract the backend `products` data into its own module or JSON file.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 448 Td (- Move the inline fetch call into a small API helper and read the base URL from) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 434 Td (  `import.meta.env`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 420 Td (- Split `App.jsx` into section components such as `Header`, `Hero`, `CategoryPanel`,) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 406 Td (  `ProductsSection`, and `ArchitectureSection`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 392 Td (- Add a second endpoint for product details or category filtering to make the app less) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 378 Td (  hardcoded.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 364 Td (- Fix the mojibake strings so the UI copy renders correctly.) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 342 Td (8. Text diagrams) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 314 Td (Backend structure) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 289 Td (backend/index.js) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 277 Td (  -> app setup) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 265 Td (  -> middleware) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 253 Td (  -> in-memory products[]) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 241 Td (  -> GET /api/products) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 229 Td (  -> response shaping \(priceFormatted\)) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 217 Td (  -> app.listen\(\)) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 189 Td (Frontend structure) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 164 Td (src/main.jsx) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 152 Td (  -> App.jsx) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 140 Td (     -> ProductCard) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 128 Td (     -> fetch catalog) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 116 Td (     -> derive categories) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 104 Td (     -> render sections) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 76 Td (Data contract flow) Tj
+Q
+endstream
+endobj
+14 0 obj
+<< /Length 2907 >>
+stream
+q
+1 1 1 rg 0 0 612 792 re f
+0.94 0.94 0.95 RG 1 w 36 36 540 720 re S
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 736 Td (products[] in backend) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 724 Td (  -> enrich with Intl.NumberFormat) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 712 Td (    -> { banner, curated }) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 700 Td (      -> frontend setBanner + setProducts) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 688 Td (        -> hero highlights) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 676 Td (        -> category cards) Tj
+0.32 0.14 0.17 rg /F3 8.5 Tf 50 664 Td (        -> product spotlight grid) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 636 Td (9. Codebase risks and improvements) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 608 Td (Evidence-based risks) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 591 Td (- Fact: There is no `docs/` folder in the original repo even though the UI footer points) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 577 Td (  engineers toward documentation and mentor notes.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 563 Td (- Fact: The frontend hardcodes backend origin and port, creating local coupling.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 549 Td (- Fact: There is no proxy config in `frontend/vite.config.js`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 535 Td (- Fact: The UI claims architectural ideas like telemetry and observability, but no such) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 521 Td (  code exists in the current source.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 507 Td (- Fact: The backend does not expose health, detail, or category-specific endpoints despite) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 493 Td (  the UI's broader architectural framing.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 479 Td (- Fact: There are visible encoding issues in both frontend and backend strings.) Tj
+0.12 0.12 0.16 rg /F2 12 Tf 50 457 Td (Suggested improvements) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 440 Td (- Add `docs/` permanently with onboarding notes and API contracts.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 426 Td (- Introduce `VITE_API_URL` or a Vite dev proxy.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 412 Td (- Add a `GET /api/products/:id` endpoint and link cards to a real detail view.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 398 Td (- Extract data and formatting helpers from `backend/index.js`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 384 Td (- Add request/error states that are more user-visible than console logging.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 370 Td (- Either use `hero.png` in the hero section or remove it to keep the asset folder tidy.) Tj
+0.12 0.12 0.16 rg /F2 14 Tf 50 348 Td (Fact vs inference note) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 328 Td (- Fact labels above are grounded in inspected files under `backend/` and `frontend/`.) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 314 Td (- Inference labels mark likely intent, design direction, or future-friendly) Tj
+0.22 0.22 0.25 rg /F1 10 Tf 50 300 Td (  interpretations that are not explicitly implemented in code.) Tj
+Q
+endstream
+endobj
+15 0 obj
+<< /Type /Pages /Count 11 /Kids [16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R] >>
+endobj
+16 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 4 0 R >>
+endobj
+17 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 5 0 R >>
+endobj
+18 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 6 0 R >>
+endobj
+19 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 7 0 R >>
+endobj
+20 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 8 0 R >>
+endobj
+21 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 9 0 R >>
+endobj
+22 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 10 0 R >>
+endobj
+23 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 11 0 R >>
+endobj
+24 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 12 0 R >>
+endobj
+25 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 13 0 R >>
+endobj
+26 0 obj
+<< /Type /Page /Parent 15 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 14 0 R >>
+endobj
+27 0 obj
+<< /Type /Catalog /Pages 15 0 R >>
+endobj
+xref
+0 28
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000000160 00000 n 
+0000000228 00000 n 
+0000001495 00000 n 
+0000004003 00000 n 
+0000007828 00000 n 
+0000011744 00000 n 
+0000016077 00000 n 
+0000020254 00000 n 
+0000024266 00000 n 
+0000028273 00000 n 
+0000032365 00000 n 
+0000036112 00000 n 
+0000039072 00000 n 
+0000039202 00000 n 
+0000039350 00000 n 
+0000039498 00000 n 
+0000039646 00000 n 
+0000039794 00000 n 
+0000039942 00000 n 
+0000040090 00000 n 
+0000040239 00000 n 
+0000040388 00000 n 
+0000040537 00000 n 
+0000040686 00000 n 
+0000040835 00000 n 
+trailer
+<< /Size 28 /Root 27 0 R >>
+startxref
+40886
+%%EOF
