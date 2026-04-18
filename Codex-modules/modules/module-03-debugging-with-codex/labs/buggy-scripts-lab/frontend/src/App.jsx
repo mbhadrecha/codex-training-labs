@@ -17,7 +17,7 @@ function App() {
         }
       })
       .catch(() => {
-        setError("Backend is unreachable. Start the Buggy Scripts backend on port 5000.");
+        setError("Backend is unreachable. Start the Buggy Scripts backend on port 5033.");
       });
   }, []);
 

@@ -61,7 +61,7 @@ app.post("/stack-trace", (req, res) => {
   return res.json(payload);
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5033;
 app.listen(PORT, () => {
   console.log(`Stack trace diagnostics listening on port ${PORT}`);
 });

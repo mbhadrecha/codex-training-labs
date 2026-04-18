@@ -179,7 +179,7 @@ app.post("/diagnose-script", (req, res) => {
   return res.json(payload);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5033;
 app.listen(PORT, () => {
   console.log(`Buggy scripts diagnostics API listening on port ${PORT}`);
 });

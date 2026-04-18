@@ -3,7 +3,7 @@ const cors = require('cors');
 const multer = require('multer');
 const { summarizeText } = require('./summary');
 
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 5033;
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 5 * 1024 * 1024 }

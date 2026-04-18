@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:4000";
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5033";
 
 export async function explainStackTrace(stackTrace) {
   const response = await fetch(`${API_URL}/stack-trace`, {

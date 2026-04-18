@@ -15,7 +15,7 @@ app.use((req, res) => {
   });
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5033;
 app.listen(port, () => {
   console.log(`Marketplace API listening on http://localhost:${port}`);
 });

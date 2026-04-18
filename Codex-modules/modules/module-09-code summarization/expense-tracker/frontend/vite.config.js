@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:4100"
+      "/api": "http://localhost:5033"
     }
   }
 });
