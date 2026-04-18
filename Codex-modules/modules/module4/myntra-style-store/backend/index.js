@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 5174;
+const PORT = process.env.PORT || 5033;
 
 app.use(cors());
 app.use(express.json());
@@ -78,7 +78,7 @@ app.get("/api/products", (req, res) => {
       currency: product.currency,
     }).format(product.price),
   }));
-  res.json({ banner: "Festival Drop · Free COD · Express delivery", curated });
+  res.json({ banner: "Festival Drop ï¿½ Free COD ï¿½ Express delivery", curated });
 });
 
 app.listen(PORT, () => {

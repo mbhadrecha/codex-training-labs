@@ -51,7 +51,7 @@ function App() {
   useEffect(() => {
     async function fetchCatalog() {
       try {
-        const res = await fetch("http://localhost:5174/api/products");
+        const res = await fetch("http://localhost:5033/api/products");
         if (!res.ok) throw new Error("Catalog service unavailable");
         const data = await res.json();
         setBanner(data.banner);
@@ -118,7 +118,7 @@ function App() {
                   : `${products.length} curated picks`}
               </strong>
               <p className="small">
-                Fetches from http://localhost:5174/api/products
+                Fetches from http://localhost:5033/api/products
               </p>
             </div>
           </div>
@@ -186,7 +186,7 @@ function App() {
         </div>
         <div>
           <h4>Next steps</h4>
-          <p>Run `npm run dev` (frontend) while `npm start` powers the API, then load `http://localhost:5173`.</p>
+          <p>Run `npm run dev` (frontend) while `npm start` powers the API, then load `http://localhost:5133`.</p>
         </div>
         <div>
           <h4>Contact</h4>

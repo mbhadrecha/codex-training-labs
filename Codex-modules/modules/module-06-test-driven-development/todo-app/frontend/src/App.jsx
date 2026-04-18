@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:4000';
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:5033';
 
 function fetchJson(path, options) {
   return fetch(path, options).then(async (response) => {
@@ -109,7 +109,7 @@ export default function App() {
           />
 
           <button type="submit" disabled={loading}>
-            {loading ? 'Saving …' : 'Save task to backend'}
+            {loading ? 'Saving ï¿½' : 'Save task to backend'}
           </button>
         </form>
         {status.message && (
@@ -123,7 +123,7 @@ export default function App() {
           <span>{tasks.length} item(s)</span>
         </header>
         <div className="list-body">
-          {loading && !tasks.length && <p>Loading saved tasks …</p>}
+          {loading && !tasks.length && <p>Loading saved tasks ï¿½</p>}
           {!tasks.length && !loading ? (
             <p className="empty">No tasks yet. Submit one above.</p>
           ) : (
@@ -132,7 +132,7 @@ export default function App() {
                 <div>
                   <p className="task-title">{task.title}</p>
                   <p className="meta">
-                    {task.due ? `Due ${task.due}` : 'No due date'} · saved {new Date(task.createdAt).toLocaleTimeString()}
+                    {task.due ? `Due ${task.due}` : 'No due date'} ï¿½ saved {new Date(task.createdAt).toLocaleTimeString()}
                   </p>
                   {task.notes && <p className="meta">{task.notes}</p>}
                 </div>

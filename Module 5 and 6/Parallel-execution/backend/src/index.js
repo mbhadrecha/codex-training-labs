@@ -3,7 +3,7 @@ const cors = require('cors');
 const { findScenario, scenarios } = require('./scenarios');
 
 const app = express();
-const PORT = process.env.PORT || 4100;
+const PORT = process.env.PORT || 5033;
 const VALID_MODES = new Set(['parallel', 'sequential']);
 
 app.use(cors({ origin: '*' }));
