@@ -13,7 +13,7 @@ This lab pairs a lightweight React dashboard with an Express diagnostics service
 ## Getting started
 
 1. `cd frontend && npm install && npm run dev` to start the React UI on `http://localhost:5173/`.
-2. In another terminal, `cd backend && npm install && npm run dev` to run the diagnostics endpoint on port 4000.
+2. In another terminal, `cd backend && npm install && npm run dev` to run the diagnostics endpoint on port 4001.
 3. The front end proxies API calls under `/api`, so you can submit traces without adjusting the fetch base URL.
 
 ## Lab steps
