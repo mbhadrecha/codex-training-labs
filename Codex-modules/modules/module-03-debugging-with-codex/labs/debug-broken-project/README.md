@@ -12,9 +12,9 @@ This lab adds a real-time debugging sandbox to the Module 03 labs. Learners fix 
 1. Open two terminals for each stack (correct and incorrect).
 2. In each backend folder, run  
 `npm install`, then  
-`npm run dev` (the servers listen on http://localhost:5000).
+`npm run dev`. The `correct` backend listens on http://localhost:5033 and the `incorrect` backend listens on http://localhost:5034 so both stacks can run side by side.
 3. In each frontend folder, run  
-`npm run dev` (the UI runs on http://localhost:5173). The correct frontend now serves a simple static bundle via a lightweight Node script, so no bundler is required; it talks directly to http://localhost:5000/login.
+`npm run dev` (the UI runs on http://localhost:5173 by default). The `correct` frontend talks directly to http://localhost:5033/login and the `incorrect` frontend talks directly to http://localhost:5034/login.
 4. Sign in as learner / pass123 (or demo / codex) to confirm the working stack and reproduce the broken behavior.
 
 ## Exercise steps
