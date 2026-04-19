@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:5033';
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:4033';
 
 function fetchJson(path, options) {
   return fetch(path, options).then(async (response) => {

@@ -11,6 +11,7 @@ const products = [
   {
     id: 1,
     name: "Anaya Chiffon Saree",
+    imageKey: "anaya-saree",
     price: 4599,
     currency: "INR",
     badge: "New",
@@ -21,6 +22,7 @@ const products = [
   {
     id: 2,
     name: "Urban Journey Sneakers",
+    imageKey: "urban-sneakers",
     price: 3199,
     currency: "INR",
     badge: "Fast Delivery",
@@ -31,6 +33,7 @@ const products = [
   {
     id: 3,
     name: "Studio 87 Raw Silk Kurta",
+    imageKey: "silk-kurta",
     price: 2450,
     currency: "INR",
     badge: "Best Seller",
@@ -41,6 +44,7 @@ const products = [
   {
     id: 4,
     name: "Citify Smart Watch",
+    imageKey: "smart-watch",
     price: 6799,
     currency: "INR",
     badge: "Trending",
@@ -51,6 +55,7 @@ const products = [
   {
     id: 5,
     name: "Heritage Block Print Co-ord",
+    imageKey: "block-print-coord",
     price: 2999,
     currency: "INR",
     badge: "Limited",
@@ -61,6 +66,7 @@ const products = [
   {
     id: 6,
     name: "Noir Edition Sunglasses",
+    imageKey: "sunglasses",
     price: 1499,
     currency: "INR",
     badge: "Rave Reviews",
@@ -78,7 +84,8 @@ app.get("/api/products", (req, res) => {
       currency: product.currency,
     }).format(product.price),
   }));
-  res.json({ banner: "Festival Drop � Free COD � Express delivery", curated });
+
+  res.json({ banner: "Festival Drop | Free COD | Express delivery", curated });
 });
 
 app.listen(PORT, () => {

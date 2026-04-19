@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Myntra-Style Store Codebase Summary</title>
+    <style>
+      :root {
+        --ink: #1f2937;
+        --muted: #5b6475;
+        --line: #d7dcea;
+        --soft-line: #e9edf5;
+        --paper: #ffffff;
+        --page: #f4f6fb;
+        --brand-1: #ff3f6c;
+        --brand-2: #ff6a95;
+        --brand-3: #1f5eff;
+        --panel: linear-gradient(135deg, rgba(255, 63, 108, 0.1), rgba(31, 94, 255, 0.08));
+      }
+
+      @page {
+        size: A4;
+        margin: 22mm 14mm 18mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--page);
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--page);
+        font-family: "Segoe UI", "Aptos", Arial, sans-serif;
+        font-size: 11pt;
+        line-height: 1.58;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .print-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 12mm;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 14mm;
+        color: #667085;
+        font-size: 9pt;
+        border-bottom: 1px solid rgba(31, 41, 55, 0.08);
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .print-header strong {
+        color: var(--brand-1);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .page-shell {
+        padding-top: 16mm;
+      }
+
+      .cover {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 18px;
+        padding: 24px 26px;
+        border-radius: 24px;
+        color: white;
+        background:
+          radial-gradient(circle at top right, rgba(255,255,255,0.26), transparent 32%),
+          linear-gradient(135deg, #ff3f6c 0%, #ff5d8c 34%, #3a4fff 100%);
+        box-shadow: 0 18px 40px rgba(53, 64, 95, 0.16);
+      }
+
+      .cover::after {
+        content: "";
+        position: absolute;
+        inset: auto -8% -36% auto;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        opacity: 0.84;
+      }
+
+      .cover h1 {
+        margin: 0;
+        font-size: 25pt;
+        line-height: 1.08;
+      }
+
+      .cover p {
+        max-width: 78%;
+        margin: 12px 0 0;
+        font-size: 11pt;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .meta-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+
+      .meta-pill {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 9.5pt;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      .panel {
+        background: var(--paper);
+        border: 1px solid var(--soft-line);
+        border-radius: 20px;
+        padding: 18px 20px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      }
+
+      .panel h2 {
+        margin-top: 0;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .toc {
+        display: grid;
+        gap: 8px;
+      }
+
+      .toc-item {
+        display: flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 8px 12px;
+        color: var(--ink);
+        text-decoration: none;
+        border-radius: 12px;
+        background: #f8faff;
+        border: 1px solid #e5ebf6;
+      }
+
+      .toc-item.level-3 {
+        margin-left: 16px;
+        font-size: 10pt;
+      }
+
+      .content {
+        background: var(--paper);
+        border: 1px solid var(--soft-line);
+        border-radius: 24px;
+        padding: 22px 24px;
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+      }
+
+      h1, h2, h3, h4 {
+        color: #172033;
+        break-after: avoid-page;
+      }
+
+      .content > h1 {
+        display: none;
+      }
+
+      h2 {
+        margin: 28px 0 12px;
+        padding-bottom: 8px;
+        font-size: 18pt;
+        border-bottom: 2px solid #eef1f8;
+      }
+
+      h3 {
+        margin: 18px 0 10px;
+        font-size: 13pt;
+      }
+
+      h4 {
+        margin: 14px 0 8px;
+        font-size: 11pt;
+      }
+
+      p, li, blockquote {
+        color: var(--ink);
+      }
+
+      p {
+        margin: 0 0 12px;
+      }
+
+      ul, ol {
+        margin: 0 0 14px 20px;
+        padding: 0;
+      }
+
+      li {
+        margin: 0 0 8px;
+      }
+
+      li > ul,
+      li > ol {
+        margin-top: 8px;
+      }
+
+      code {
+        padding: 0.12rem 0.4rem;
+        border-radius: 999px;
+        background: #f3f5fa;
+        border: 1px solid #e0e6f0;
+        font-size: 0.92em;
+        font-family: Consolas, "Courier New", monospace;
+      }
+
+      pre {
+        overflow: hidden;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: #101828;
+        color: #eff4ff;
+      }
+
+      pre code {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        border-radius: 0;
+      }
+
+      blockquote {
+        margin: 0 0 14px;
+        padding: 10px 14px;
+        border-left: 4px solid var(--brand-1);
+        background: #fff5f8;
+        border-radius: 0 14px 14px 0;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 70px;
+        margin-right: 8px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 8.6pt;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        vertical-align: baseline;
+      }
+
+      .badge.fact {
+        color: #0f5132;
+        background: #dff5e9;
+      }
+
+      .badge.inference {
+        color: #7a4908;
+        background: #ffebb8;
+      }
+
+      .section-note {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid #ead8fb;
+        background: linear-gradient(180deg, rgba(122, 72, 224, 0.08), rgba(122, 72, 224, 0.03));
+      }
+
+      .section-note strong {
+        color: #5f3dc4;
+      }
+
+      .footer-space {
+        height: 8mm;
+      }
+
+      @media print {
+        html, body {
+          background: white;
+        }
+
+        .panel,
+        .content,
+        .cover {
+          box-shadow: none;
+        }
+
+        .summary-grid,
+        .content {
+          break-inside: avoid;
+        }
+
+        a {
+          color: inherit;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="print-header">
+      <div><strong>Myntra Style Store</strong></div>
+      <div>Codebase Summary</div>
+    </div>
+    <div class="page-shell">
+      <section class="cover">
+        <p class="eyebrow">Architecture Snapshot</p>
+        <h1>Myntra-Style Store Codebase Summary</h1>
+        <p>
+          A print-friendly walkthrough of the storefront demo, covering backend structure,
+          frontend flow, integration points, execution paths, and onboarding cues for new contributors.
+        </p>
+        <div class="meta-row">
+          <div class="meta-pill">Express backend</div>
+          <div class="meta-pill">React + Vite frontend</div>
+          <div class="meta-pill">Generated 18 April 2026 at 8:22 pm</div>
+        </div>
+      </section>
+
+      <section class="summary-grid">
+        <article class="panel">
+          <h2>Document Guide</h2>
+          <p class="lead">
+            This PDF is styled for review and handoff: quick orientation at the top, then a section-by-section
+            walkthrough of the codebase exactly as captured in the source Markdown file.
+          </p>
+          <div class="section-note">
+            <div><strong>Reading tip</strong></div>
+            <div>Use the internal inventory and files-to-read-first sections to onboard quickly, then jump into the execution flow and risks.</div>
+          </div>
+        </article>
+        <aside class="panel">
+          <h2>Contents</h2>
+          <div class="toc"><a class="toc-item level-2" href="#internal-inventory"><span>Internal inventory</span></a><a class="toc-item level-3" href="#backend-entry-points"><span>Backend entry points</span></a><a class="toc-item level-3" href="#frontend-entry-points"><span>Frontend entry points</span></a><a class="toc-item level-3" href="#route-definitions"><span>Route definitions</span></a><a class="toc-item level-3" href="#api-client-definitions"><span>API client definitions</span></a><a class="toc-item level-3" href="#main-state-management-files"><span>Main state management files</span></a><a class="toc-item level-3" href="#main-config-and-env-files"><span>Main config and env files</span></a><a class="toc-item level-2" href="#1-high-level-project-overview"><span>1. High-level project overview</span></a><a class="toc-item level-3" href="#repository-boundaries"><span>Repository boundaries</span></a><a class="toc-item level-3" href="#primary-runtime-story"><span>Primary runtime story</span></a><a class="toc-item level-2" href="#2-backend-explanation"><span>2. Backend explanation</span></a><a class="toc-item level-3" href="#folder-by-folder"><span>Folder-by-folder</span></a><a class="toc-item level-3" href="#startup-flow"><span>Startup flow</span></a><a class="toc-item level-3" href="#middleware"><span>Middleware</span></a><a class="toc-item level-3" href="#routes-controllers-services-models"><span>Routes, controllers, services, models</span></a><a class="toc-item level-3" href="#request-lifecycle"><span>Request lifecycle</span></a><a class="toc-item level-3" href="#dependency-flow"><span>Dependency flow</span></a><a class="toc-item level-3" href="#files-to-read-first"><span>Files to read first</span></a><a class="toc-item level-3" href="#risks"><span>Risks</span></a><a class="toc-item level-2" href="#3-frontend-explanation"><span>3. Frontend explanation</span></a><a class="toc-item level-3" href="#folder-by-folder"><span>Folder-by-folder</span></a><a class="toc-item level-3" href="#bootstrap-flow"><span>Bootstrap flow</span></a><a class="toc-item level-3" href="#routing"><span>Routing</span></a><a class="toc-item level-3" href="#pages-components-hooks-state-api-layer"><span>Pages, components, hooks, state, API layer</span></a><a class="toc-item level-3" href="#render-and-data-flow"><span>Render and data flow</span></a><a class="toc-item level-3" href="#component-hierarchy"><span>Component hierarchy</span></a><a class="toc-item level-3" href="#files-to-read-first"><span>Files to read first</span></a><a class="toc-item level-3" href="#risks"><span>Risks</span></a><a class="toc-item level-2" href="#4-frontend-backend-flow"><span>4. Frontend-backend flow</span></a><a class="toc-item level-3" href="#api-definitions"><span>API definitions</span></a><a class="toc-item level-3" href="#backend-route-mapping"><span>Backend route mapping</span></a><a class="toc-item level-3" href="#response-handling"><span>Response handling</span></a><a class="toc-item level-3" href="#concrete-end-to-end-journeys"><span>Concrete end-to-end journeys</span></a><a class="toc-item level-2" href="#5-execution-flow"><span>5. Execution flow</span></a><a class="toc-item level-2" href="#6-architecture-summary"><span>6. Architecture summary</span></a><a class="toc-item level-2" href="#7-onboarding-guide"><span>7. Onboarding guide</span></a><a class="toc-item level-3" href="#fastest-reading-order"><span>Fastest reading order</span></a><a class="toc-item level-3" href="#productive-first-tasks"><span>Productive first tasks</span></a><a class="toc-item level-2" href="#8-text-diagrams"><span>8. Text diagrams</span></a><a class="toc-item level-3" href="#backend-structure"><span>Backend structure</span></a><a class="toc-item level-3" href="#frontend-structure"><span>Frontend structure</span></a><a class="toc-item level-3" href="#data-contract-flow"><span>Data contract flow</span></a><a class="toc-item level-2" href="#9-codebase-risks-and-improvements"><span>9. Codebase risks and improvements</span></a><a class="toc-item level-3" href="#evidence-based-risks"><span>Evidence-based risks</span></a><a class="toc-item level-3" href="#suggested-improvements"><span>Suggested improvements</span></a><a class="toc-item level-2" href="#fact-vs-inference-note"><span>Fact vs inference note</span></a></div>
+        </aside>
+      </section>
+
+      <main class="content">
+        <h1 id="myntra-style-store-codebase-summary">Myntra-Style Store Codebase Summary</h1>
+<h2 id="internal-inventory">Internal inventory</h2>
+<h3 id="backend-entry-points">Backend entry points</h3>
+<ul><li><span><code>backend/index.js</code> is the backend entry point. It creates the Express app, defines the in-memory product catalog, exposes <code>GET /api/products</code>, and starts listening on <code>process.env.PORT || 5033</code>.</span></li></ul>
+<h3 id="frontend-entry-points">Frontend entry points</h3>
+<ul><li><span><code>frontend/src/main.jsx</code> bootstraps React and renders <code>&lt;App /&gt;</code> inside <code>StrictMode</code>.</span></li><li><span><code>frontend/src/App.jsx</code> contains the actual application shell, fetch logic, view composition, and a nested <code>ProductCard</code> component.</span></li></ul>
+<h3 id="route-definitions">Route definitions</h3>
+<ul><li><span><code>backend/index.js</code></span><ul><li><span><code>GET /api/products</code></span></li></ul></li></ul>
+<h3 id="api-client-definitions">API client definitions</h3>
+<ul><li><span>There is no dedicated API client module.</span></li><li><span><code>frontend/src/App.jsx</code> calls <code>fetch(&quot;http://localhost:5033/api/products&quot;)</code> directly inside a <code>useEffect</code>.</span></li></ul>
+<h3 id="main-state-management-files">Main state management files</h3>
+<ul><li><span><code>frontend/src/App.jsx</code></span><ul><li><span><code>products</code></span></li><li><span><code>banner</code></span></li><li><span><code>status</code></span></li></ul></li><li><span>There is no Redux, Context, Zustand, or custom hooks layer in the inspected source.</span></li></ul>
+<h3 id="main-config-and-env-files">Main config and env files</h3>
+<ul><li><span><code>backend/package.json</code> sets <code>index.js</code> as the main file and exposes <code>npm start</code>.</span></li><li><span><code>frontend/package.json</code> provides <code>dev</code>, <code>build</code>, <code>lint</code>, and <code>preview</code> scripts.</span></li><li><span><code>frontend/vite.config.js</code> uses the default React Vite plugin with no proxy or custom config.</span></li><li><span>There is no <code>.env</code> file in the inspected project, and the frontend hardcodes the backend URL.</span></li></ul>
+<h2 id="1-high-level-project-overview">1. High-level project overview</h2>
+<ul><li><span><span class="badge fact">Fact</span>This repository is a compact full-stack storefront demo with an Express backend and a React + Vite frontend.</span></li><li><span><span class="badge fact">Fact</span>The backend serves a curated fashion-and-lifestyle catalog from an in-memory array declared directly in <code>backend/index.js</code>.</span></li><li><span><span class="badge fact">Fact</span>The frontend renders a branded landing page with navigation anchors, a hero section, category cards, product spotlight cards, and a footer with onboarding hints.</span></li><li><span><span class="badge inference">Inference</span>The project is designed as a polished training/demo app rather than a production e-commerce system, because the data layer, API surface, and frontend routing are intentionally minimal.</span></li></ul>
+<h3 id="repository-boundaries">Repository boundaries</h3>
+<ul><li><span><code>backend/</code>: Express API and sample data.</span></li><li><span><code>frontend/</code>: Vite + React single-page UI.</span></li><li><span><code>docs/</code>: not originally present in the repo; this summary is being added there as a documentation artifact.</span></li></ul>
+<h3 id="primary-runtime-story">Primary runtime story</h3>
+<ul><li><span><span class="badge fact">Fact</span>The main user journey is a single page load.</span></li><li><span><span class="badge fact">Fact</span>On mount, <code>App.jsx</code> fetches catalog data from <code>GET /api/products</code>.</span></li><li><span><span class="badge fact">Fact</span>The backend formats prices using <code>Intl.NumberFormat(&quot;en-IN&quot;, ...)</code> before returning the response.</span></li><li><span><span class="badge fact">Fact</span>The frontend stores that response in state, derives categories with <code>useMemo</code>, and renders cards and status text from the fetched payload.</span></li></ul>
+<h2 id="2-backend-explanation">2. Backend explanation</h2>
+<h3 id="folder-by-folder">Folder-by-folder</h3>
+<ul><li><span><code>backend/package.json</code></span><ul><li><span><span class="badge fact">Fact</span>The backend uses <code>express</code> and <code>cors</code>.</span></li><li><span><span class="badge fact">Fact</span>The only script is <code>npm start</code>, which runs <code>node index.js</code>.</span></li></ul></li><li><span><code>backend/index.js</code></span><ul><li><span><span class="badge fact">Fact</span>This file contains all backend logic: app setup, middleware, data, route handler, response shaping, and server startup.</span></li><li><span><span class="badge fact">Fact</span>There are no separate <code>routes/</code>, <code>controllers/</code>, <code>services/</code>, <code>models/</code>, or <code>data/</code> folders in this repo.</span></li></ul></li></ul>
+<h3 id="startup-flow">Startup flow</h3>
+<ol><li><span><code>npm start</code> runs <code>node index.js</code> from <code>backend/package.json</code>.</span></li><li><span><code>backend/index.js</code> imports <code>express</code> and <code>cors</code>.</span></li><li><span>It creates the app and determines the port with <code>process.env.PORT || 5033</code>.</span></li><li><span>It enables <code>cors()</code> and <code>express.json()</code>.</span></li><li><span>It defines the in-memory <code>products</code> array.</span></li><li><span>It registers <code>GET /api/products</code>.</span></li><li><span>It starts listening and logs <code>Catalog API listening on http://localhost:${PORT}</code>.</span></li></ol>
+<h3 id="middleware">Middleware</h3>
+<ul><li><span><span class="badge fact">Fact</span><code>cors()</code> is globally enabled.</span></li><li><span><span class="badge fact">Fact</span><code>express.json()</code> is globally enabled.</span></li><li><span><span class="badge fact">Fact</span>There is no custom error middleware and no 404 fallback route.</span></li><li><span><span class="badge inference">Inference</span><code>express.json()</code> is defensive scaffolding for future write endpoints, because the current API only serves a read-only <code>GET</code>.</span></li></ul>
+<h3 id="routes-controllers-services-models">Routes, controllers, services, models</h3>
+<h4 id="routes">Routes</h4>
+<ul><li><span><code>GET /api/products</code></span><ul><li><span>Defined inline in <code>backend/index.js</code>.</span></li><li><span>No route module abstraction exists.</span></li></ul></li></ul>
+<h4 id="controllers">Controllers</h4>
+<ul><li><span><span class="badge fact">Fact</span>There is no separate controller layer.</span></li><li><span><span class="badge inference">Inference</span>The anonymous route handler in <code>app.get(&quot;/api/products&quot;, ...)</code> is effectively acting as both controller and service.</span></li></ul>
+<h4 id="services">Services</h4>
+<ul><li><span><span class="badge fact">Fact</span>There is no separate service module.</span></li><li><span><span class="badge fact">Fact</span>The route handler maps over <code>products</code> and augments each item with <code>priceFormatted</code>.</span></li><li><span><span class="badge fact">Fact</span>It uses <code>new Intl.NumberFormat(&quot;en-IN&quot;, { style: &quot;currency&quot;, currency: product.currency })</code> to produce locale-aware pricing strings.</span></li></ul>
+<h4 id="models-schemas">Models / schemas</h4>
+<ul><li><span><span class="badge fact">Fact</span>There are no schemas or ORM models.</span></li><li><span><span class="badge fact">Fact</span>The product shape is implied by plain JavaScript objects in the <code>products</code> array.</span></li><li><span><span class="badge fact">Fact</span>Each product currently includes <code>id</code>, <code>name</code>, <code>price</code>, <code>currency</code>, <code>badge</code>, <code>category</code>, <code>description</code>, and <code>delivery</code>.</span></li></ul>
+<h3 id="request-lifecycle">Request lifecycle</h3>
+<ol><li><span>The browser requests <code>http://localhost:5033/api/products</code>.</span></li><li><span>Express matches the inline <code>app.get(&quot;/api/products&quot;, ...)</code> handler.</span></li><li><span>The handler maps the in-memory <code>products</code> array into a <code>curated</code> array.</span></li><li><span>Each product is copied and extended with <code>priceFormatted</code>.</span></li><li><span>The handler returns JSON in the shape <code>{ banner, curated }</code>.</span></li><li><span>The browser receives the payload and the frontend updates state.</span></li></ol>
+<h3 id="dependency-flow">Dependency flow</h3>
+<ul><li><span><code>backend/index.js</code></span><ul><li><span>depends on <code>express</code></span></li><li><span>depends on <code>cors</code></span></li><li><span>contains the data source</span></li><li><span>contains the transformation logic</span></li><li><span>contains the route definition</span></li></ul></li><li><span><span class="badge inference">Inference</span>This is the simplest possible vertical slice, which makes onboarding fast but leaves little separation for future expansion.</span></li></ul>
+<h3 id="files-to-read-first">Files to read first</h3>
+<ul><li><span><code>backend/index.js</code>: the single most important backend file because it contains the entire API surface and data contract.</span></li><li><span><code>backend/package.json</code>: confirms the backend runtime and dependency versions.</span></li></ul>
+<h3 id="risks">Risks</h3>
+<ul><li><span><span class="badge fact">Fact</span>All data is in-memory, so there is no persistence or external data source.</span></li><li><span><span class="badge fact">Fact</span>There is only one API endpoint, which means the app has no product detail, filtering, search, or cart APIs.</span></li><li><span><span class="badge fact">Fact</span>There is no validation, logging middleware, error middleware, or test coverage in the inspected source.</span></li><li><span><span class="badge fact">Fact</span>The response banner contains mojibake characters: <code>Festival Drop ï¿½ Free COD ï¿½ Express delivery</code>.</span></li><li><span><span class="badge inference">Inference</span>If the catalog grows, <code>index.js</code> will become harder to maintain because data, formatting, routing, and startup are all coupled together.</span></li></ul>
+<h2 id="3-frontend-explanation">3. Frontend explanation</h2>
+<h3 id="folder-by-folder">Folder-by-folder</h3>
+<ul><li><span><code>frontend/package.json</code></span><ul><li><span><span class="badge fact">Fact</span>Uses React 19, React DOM 19, Vite 8, and ESLint 9.</span></li></ul></li><li><span><code>frontend/vite.config.js</code></span><ul><li><span><span class="badge fact">Fact</span>Uses <code>@vitejs/plugin-react</code> with default configuration.</span></li><li><span><span class="badge fact">Fact</span>No development proxy is configured.</span></li></ul></li><li><span><code>frontend/src/main.jsx</code></span><ul><li><span><span class="badge fact">Fact</span>Bootstraps the React app.</span></li></ul></li><li><span><code>frontend/src/App.jsx</code></span><ul><li><span><span class="badge fact">Fact</span>Holds almost all application behavior and markup.</span></li><li><span><span class="badge fact">Fact</span>Declares <code>navLinks</code>, <code>architecturePillars</code>, <code>ProductCard</code>, and <code>App</code> in the same file.</span></li></ul></li><li><span><code>frontend/src/App.css</code></span><ul><li><span><span class="badge fact">Fact</span>Contains most component-level styling for layout sections, cards, hero, footer, and responsive behavior.</span></li></ul></li><li><span><code>frontend/src/index.css</code></span><ul><li><span><span class="badge fact">Fact</span>Sets theme variables, imports fonts from Google Fonts, and establishes base styles.</span></li></ul></li><li><span><code>frontend/public/</code></span><ul><li><span><span class="badge fact">Fact</span>Contains shared static assets such as <code>icons.svg</code> and <code>favicon.svg</code>.</span></li></ul></li><li><span><code>frontend/src/assets/</code></span><ul><li><span><span class="badge fact">Fact</span>Contains bundled assets including <code>hero.png</code>, <code>react.svg</code>, and <code>vite.svg</code>.</span></li><li><span><span class="badge fact">Fact</span><code>hero.png</code> is present in the repo but is not imported or referenced from <code>App.jsx</code>.</span></li></ul></li></ul>
+<h3 id="bootstrap-flow">Bootstrap flow</h3>
+<ol><li><span>Vite serves <code>frontend/index.html</code>.</span></li><li><span><code>frontend/src/main.jsx</code> mounts the React tree.</span></li><li><span><code>App.jsx</code> initializes <code>products</code>, <code>banner</code>, and <code>status</code>.</span></li><li><span>The initial <code>useEffect</code> calls the backend endpoint exactly once on mount.</span></li><li><span>If the response is successful, the app stores <code>banner</code> and <code>curated</code> products and marks <code>status</code> as <code>ready</code>.</span></li><li><span>If the request fails, the app logs the error and marks <code>status</code> as <code>error</code>.</span></li><li><span><code>useMemo</code> derives up to four distinct categories from the fetched products.</span></li></ol>
+<h3 id="routing">Routing</h3>
+<ul><li><span><span class="badge fact">Fact</span>There is no client-side router.</span></li><li><span><span class="badge fact">Fact</span>Navigation is in-page anchor navigation using <code>href=&quot;#collections&quot;</code>, <code>href=&quot;#architecture&quot;</code>, <code>href=&quot;#stories&quot;</code>, and <code>href=&quot;#docs&quot;</code>.</span></li><li><span><span class="badge inference">Inference</span>The anchors are there to simulate section-based navigation in a landing page rather than true page-level navigation.</span></li></ul>
+<h3 id="pages-components-hooks-state-api-layer">Pages, components, hooks, state, API layer</h3>
+<h4 id="pages-components">Pages / components</h4>
+<ul><li><span><code>App</code></span><ul><li><span><span class="badge fact">Fact</span>Acts as the only page component.</span></li><li><span><span class="badge fact">Fact</span>Renders the header, hero, category panel, product spotlight section, architecture section, and footer.</span></li></ul></li><li><span><code>ProductCard</code></span><ul><li><span><span class="badge fact">Fact</span>Nested inside <code>App.jsx</code>.</span></li><li><span><span class="badge fact">Fact</span>Receives a <code>product</code> prop and displays <code>badge</code>, <code>priceFormatted</code>, <code>description</code>, <code>category</code>, and <code>delivery</code>.</span></li><li><span><span class="badge fact">Fact</span>Uses a decorative empty <code>div.product-image</code> instead of a real product image.</span></li></ul></li></ul>
+<h4 id="hooks">Hooks</h4>
+<ul><li><span><code>useState</code></span><ul><li><span><span class="badge fact">Fact</span>Tracks <code>products</code>, <code>banner</code>, and <code>status</code>.</span></li></ul></li><li><span><code>useEffect</code></span><ul><li><span><span class="badge fact">Fact</span>Triggers the initial catalog fetch.</span></li></ul></li><li><span><code>useMemo</code></span><ul><li><span><span class="badge fact">Fact</span>Derives the <code>categories</code> array from unique product categories.</span></li></ul></li></ul>
+<h4 id="state">State</h4>
+<ul><li><span><code>products</code></span><ul><li><span><span class="badge fact">Fact</span>Drives the product grid and category derivation.</span></li></ul></li><li><span><code>banner</code></span><ul><li><span><span class="badge fact">Fact</span>Drives the first hero highlight chip.</span></li></ul></li><li><span><code>status</code></span><ul><li><span><span class="badge fact">Fact</span>Controls hero status text, the spotlight status pill, and the error/loading states.</span></li></ul></li></ul>
+<h4 id="api-layer">API layer</h4>
+<ul><li><span><span class="badge fact">Fact</span>There is no shared client, hook, or service abstraction.</span></li><li><span><span class="badge fact">Fact</span><code>fetch(&quot;http://localhost:5033/api/products&quot;)</code> is hardcoded in <code>App.jsx</code>.</span></li><li><span><span class="badge fact">Fact</span>Because there is no Vite proxy and no env-driven base URL, frontend and backend coordination currently depends on that fixed port.</span></li></ul>
+<h3 id="render-and-data-flow">Render and data flow</h3>
+<ol><li><span>Header renders immediately from static <code>navLinks</code>.</span></li><li><span>Hero renders with static marketing copy and dynamic <code>banner</code>/<code>status</code>.</span></li><li><span>When the fetch succeeds, <code>products</code> is populated from <code>data.curated</code>.</span></li><li><span><code>categories</code> is recomputed from the current product list.</span></li><li><span>The category panel renders live categories if data exists, otherwise a fallback array of <code>[&quot;Ethnic&quot;, &quot;Western&quot;, &quot;Gadgets&quot;, &quot;Beauty&quot;]</code>.</span></li><li><span>The spotlight section renders loading text, an error message, or mapped <code>ProductCard</code> instances depending on <code>status</code>.</span></li><li><span>The architecture section renders static cards from <code>architecturePillars</code>.</span></li><li><span>The footer renders static onboarding notes and run instructions.</span></li></ol>
+<h3 id="component-hierarchy">Component hierarchy</h3>
+<pre><code>main.jsx
+  -&gt; App
+     -&gt; header.main-header
+        -&gt; logo
+        -&gt; nav links
+        -&gt; CTA button
+     -&gt; main
+        -&gt; section.hero
+           -&gt; hero-content
+           -&gt; hero-panel
+        -&gt; section.category-panel
+           -&gt; category cards
+        -&gt; section.products-section
+           -&gt; products-header
+           -&gt; status text (conditional)
+           -&gt; product-grid
+              -&gt; ProductCard x N
+        -&gt; section.tech-section
+           -&gt; architecture pillar cards
+     -&gt; footer.main-footer</code></pre>
+<h3 id="files-to-read-first">Files to read first</h3>
+<ul><li><span><code>frontend/src/App.jsx</code>: contains the live runtime behavior and is the highest-value frontend file.</span></li><li><span><code>frontend/src/App.css</code>: maps each rendered section to its layout and visual treatment.</span></li><li><span><code>frontend/src/main.jsx</code>: confirms the actual entry point.</span></li><li><span><code>frontend/vite.config.js</code>: useful to verify there is no dev proxy or special environment setup.</span></li><li><span><code>frontend/package.json</code>: confirms scripts and framework versions.</span></li></ul>
+<h3 id="risks">Risks</h3>
+<ul><li><span><span class="badge fact">Fact</span><code>App.jsx</code> combines page composition, data fetching, derived state, copywriting, and component definitions in one file.</span></li><li><span><span class="badge fact">Fact</span>The frontend hardcodes <code>http://localhost:5033/api/products</code> instead of using environment configuration.</span></li><li><span><span class="badge fact">Fact</span><code>frontend/src/index.css</code> imports Google Fonts over the network, which can affect rendering in offline or restricted environments.</span></li><li><span><span class="badge fact">Fact</span>Multiple strings contain encoding artifacts such as <code>Login Â· Explore</code>, <code>Inspired by Myntra Â· Built for India</code>, and <code>Loading productsâ€¦</code>.</span></li><li><span><span class="badge fact">Fact</span><code>hero.png</code> exists in <code>src/assets</code> but is unused, which suggests dead or incomplete design work.</span></li></ul>
+<h2 id="4-frontend-backend-flow">4. Frontend-backend flow</h2>
+<h3 id="api-definitions">API definitions</h3>
+<ul><li><span><code>GET /api/products</code></span><ul><li><span>Response shape:</span><ul><li><span><code>banner: string</code></span></li><li><span><code>curated: Product[]</code></span></li></ul></li><li><span>Each <code>Product</code> includes the original fields plus <code>priceFormatted</code>.</span></li></ul></li></ul>
+<h3 id="backend-route-mapping">Backend route mapping</h3>
+<ul><li><span><code>frontend/src/App.jsx</code></span><ul><li><span><code>useEffect(fetchCatalog)</code> calls <code>GET /api/products</code></span></li></ul></li><li><span><code>backend/index.js</code></span><ul><li><span><code>app.get(&quot;/api/products&quot;, ...)</code> handles the request</span></li><li><span>response is shaped inline and returned with <code>res.json(...)</code></span></li></ul></li></ul>
+<h3 id="response-handling">Response handling</h3>
+<ul><li><span><span class="badge fact">Fact</span>The frontend expects <code>data.banner</code> and <code>data.curated</code>.</span></li><li><span><span class="badge fact">Fact</span><code>setBanner(data.banner)</code> feeds the hero highlight.</span></li><li><span><span class="badge fact">Fact</span><code>setProducts(data.curated)</code> feeds both the category derivation and the product grid.</span></li><li><span><span class="badge fact">Fact</span><code>setStatus(&quot;ready&quot;)</code> switches the page from loading state to ready state.</span></li></ul>
+<h3 id="concrete-end-to-end-journeys">Concrete end-to-end journeys</h3>
+<h4 id="journey-1-initial-storefront-load">Journey 1: Initial storefront load</h4>
+<ol><li><span>User opens the frontend.</span></li><li><span><code>App</code> mounts and runs <code>fetchCatalog()</code>.</span></li><li><span>The browser requests <code>GET /api/products</code>.</span></li><li><span>The backend enriches each product with <code>priceFormatted</code>.</span></li><li><span>The frontend stores <code>banner</code> and <code>products</code>.</span></li><li><span>The hero, category cards, and product spotlight all re-render with live data.</span></li></ol>
+<h4 id="journey-2-successful-category-rendering">Journey 2: Successful category rendering</h4>
+<ol><li><span>The product response arrives with categories such as <code>Ethnic</code>, <code>Western</code>, <code>Gadgets</code>, and <code>Accessories</code>.</span></li><li><span><code>useMemo</code> builds a <code>Set</code> from <code>products.map((product) =&gt; product.category)</code>.</span></li><li><span>The resulting unique categories are sliced to the first four values.</span></li><li><span>The category panel renders those categories instead of the fallback hardcoded set.</span></li></ol>
+<h4 id="journey-3-backend-unavailable">Journey 3: Backend unavailable</h4>
+<ol><li><span>The frontend fetch fails or returns a non-OK status.</span></li><li><span><code>fetchCatalog()</code> throws or enters the <code>catch</code>.</span></li><li><span>The app logs the error to the console.</span></li><li><span><code>status</code> becomes <code>error</code>.</span></li><li><span>The hero panel switches to <code>Catalog unreachable</code>, and the product section prompts the user to start the backend with <code>npm start</code>.</span></li></ol>
+<h2 id="5-execution-flow">5. Execution flow</h2>
+<pre><code>Frontend boot
+  index.html
+    -&gt; src/main.jsx
+      -&gt; App.jsx
+        -&gt; useEffect(fetchCatalog)
+          -&gt; GET http://localhost:5033/api/products
+            -&gt; backend/index.js
+              -&gt; map products
+              -&gt; add priceFormatted
+              -&gt; return { banner, curated }
+        -&gt; setBanner
+        -&gt; setProducts
+        -&gt; setStatus(&quot;ready&quot;)
+        -&gt; render hero, categories, cards, architecture, footer</code></pre>
+<h2 id="6-architecture-summary">6. Architecture summary</h2>
+<ul><li><span><span class="badge fact">Fact</span>The backend is intentionally flat: one file, one dataset, one route.</span></li><li><span><span class="badge fact">Fact</span>The frontend is also mostly flat, with one page component and one nested presentational component.</span></li><li><span><span class="badge fact">Fact</span>The integration contract is tiny and easy to understand because the frontend only depends on one JSON response shape.</span></li><li><span><span class="badge inference">Inference</span>This repo is optimized for quick onboarding and UI iteration, not for multi-team ownership or long-term feature growth.</span></li><li><span><span class="badge inference">Inference</span>The first scalability refactor would likely be splitting the backend into route/service/data files and moving frontend fetch logic into a reusable API module.</span></li></ul>
+<h2 id="7-onboarding-guide">7. Onboarding guide</h2>
+<h3 id="fastest-reading-order">Fastest reading order</h3>
+<ol><li><span>Read <code>backend/index.js</code> to understand the exact API contract and real backend port.</span></li><li><span>Read <code>frontend/src/App.jsx</code> to see how the page consumes that contract.</span></li><li><span>Read <code>frontend/src/App.css</code> to map the major UI sections to their visual intent.</span></li><li><span>Read <code>frontend/src/index.css</code> and <code>frontend/vite.config.js</code> to understand global styling and build setup.</span></li><li><span>Read <code>frontend/package.json</code> and <code>backend/package.json</code> to confirm framework/runtime versions.</span></li></ol>
+<h3 id="productive-first-tasks">Productive first tasks</h3>
+<ul><li><span>Extract the backend <code>products</code> data into its own module or JSON file.</span></li><li><span>Move the inline fetch call into a small API helper and read the base URL from <code>import.meta.env</code>.</span></li><li><span>Split <code>App.jsx</code> into section components such as <code>Header</code>, <code>Hero</code>, <code>CategoryPanel</code>, <code>ProductsSection</code>, and <code>ArchitectureSection</code>.</span></li><li><span>Add a second endpoint for product details or category filtering to make the app less hardcoded.</span></li><li><span>Fix the mojibake strings so the UI copy renders correctly.</span></li></ul>
+<h2 id="8-text-diagrams">8. Text diagrams</h2>
+<h3 id="backend-structure">Backend structure</h3>
+<pre><code>backend/index.js
+  -&gt; app setup
+  -&gt; middleware
+  -&gt; in-memory products[]
+  -&gt; GET /api/products
+  -&gt; response shaping (priceFormatted)
+  -&gt; app.listen()</code></pre>
+<h3 id="frontend-structure">Frontend structure</h3>
+<pre><code>src/main.jsx
+  -&gt; App.jsx
+     -&gt; ProductCard
+     -&gt; fetch catalog
+     -&gt; derive categories
+     -&gt; render sections</code></pre>
+<h3 id="data-contract-flow">Data contract flow</h3>
+<pre><code>products[] in backend
+  -&gt; enrich with Intl.NumberFormat
+    -&gt; { banner, curated }
+      -&gt; frontend setBanner + setProducts
+        -&gt; hero highlights
+        -&gt; category cards
+        -&gt; product spotlight grid</code></pre>
+<h2 id="9-codebase-risks-and-improvements">9. Codebase risks and improvements</h2>
+<h3 id="evidence-based-risks">Evidence-based risks</h3>
+<ul><li><span><span class="badge fact">Fact</span>There is no <code>docs/</code> folder in the original repo even though the UI footer points engineers toward documentation and mentor notes.</span></li><li><span><span class="badge fact">Fact</span>The frontend hardcodes backend origin and port, creating local coupling.</span></li><li><span><span class="badge fact">Fact</span>There is no proxy config in <code>frontend/vite.config.js</code>.</span></li><li><span><span class="badge fact">Fact</span>The UI claims architectural ideas like telemetry and observability, but no such code exists in the current source.</span></li><li><span><span class="badge fact">Fact</span>The backend does not expose health, detail, or category-specific endpoints despite the UI's broader architectural framing.</span></li><li><span><span class="badge fact">Fact</span>There are visible encoding issues in both frontend and backend strings.</span></li></ul>
+<h3 id="suggested-improvements">Suggested improvements</h3>
+<ul><li><span>Add <code>docs/</code> permanently with onboarding notes and API contracts.</span></li><li><span>Introduce <code>VITE_API_URL</code> or a Vite dev proxy.</span></li><li><span>Add a <code>GET /api/products/:id</code> endpoint and link cards to a real detail view.</span></li><li><span>Extract data and formatting helpers from <code>backend/index.js</code>.</span></li><li><span>Add request/error states that are more user-visible than console logging.</span></li><li><span>Either use <code>hero.png</code> in the hero section or remove it to keep the asset folder tidy.</span></li></ul>
+<h2 id="fact-vs-inference-note">Fact vs inference note</h2>
+<ul><li><span>Fact labels above are grounded in inspected files under <code>backend/</code> and <code>frontend/</code>.</span></li><li><span>Inference labels mark likely intent, design direction, or future-friendly interpretations that are not explicitly implemented in code.</span></li></ul>
+      </main>
+      <div class="footer-space"></div>
+    </div>
+  </body>
+</html>

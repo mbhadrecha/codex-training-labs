@@ -1,80 +1,125 @@
 import { useEffect, useMemo, useState } from "react";
 import "./App.css";
+import HeroCarousel from "./components/HeroCarousel";
+import ProductCard from "./components/ProductCard";
+import { festivalSlides } from "./assets/storeAssets";
+import {
+  createPriceBuckets,
+  filterProducts,
+  getCartQuantity,
+  getProductQuantity,
+  sortProducts,
+  SORT_OPTIONS,
+  updateCartQuantity,
+} from "./storefront";
 
 const navLinks = [
   { label: "Collections", href: "#collections" },
-  { label: "Architecture", href: "#architecture" },
-  { label: "Product Stories", href: "#stories" },
+  { label: "Categories", href: "#categories" },
+  { label: "Products", href: "#products" },
   { label: "Docs", href: "#docs" },
 ];
 
 const architecturePillars = [
   {
     title: "React + Vite",
-    detail: "Client-side rendering, CSS modules, and fast HMR for iterative styling.",
+    detail: "Single-page storefront experience with derived UI state for sorting, filtering, and cart updates.",
   },
   {
     title: "Express API",
-    detail: "Lightweight catalog service with curated responses, price formatting, and CORS-safe headers.",
+    detail: "Catalog data remains server-driven, including formatted pricing and the product image key used by the client.",
   },
   {
-    title: "Performance",
-    detail: "Static assets served via Vite dev server or production build with gzip-friendly bundles.",
+    title: "Local Assets",
+    detail: "Festival banners, product art, and placeholder images are served from controlled frontend assets instead of brittle remote URLs.",
   },
 ];
-
-function ProductCard({ product }) {
-  return (
-    <article className="product-card">
-      <div className="product-badge">{product.badge}</div>
-      <div className="product-image" aria-hidden="true"></div>
-      <div className="product-body">
-        <div className="product-heading">
-          <h3>{product.name}</h3>
-          <span className="product-price">{product.priceFormatted}</span>
-        </div>
-        <p>{product.description}</p>
-        <div className="product-meta">
-          <span className="chip">{product.category}</span>
-          <span className="chip subtle">{product.delivery}</span>
-        </div>
-      </div>
-    </article>
-  );
-}
 
 function App() {
   const [products, setProducts] = useState([]);
   const [banner, setBanner] = useState("");
   const [status, setStatus] = useState("loading");
+  const [cart, setCart] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedPriceBucketId, setSelectedPriceBucketId] = useState("all");
+  const [sortOrder, setSortOrder] = useState(SORT_OPTIONS.FEATURED);
+  const [filterPanelOpen, setFilterPanelOpen] = useState(false);
+  const [sortPanelOpen, setSortPanelOpen] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     async function fetchCatalog() {
       try {
-        const res = await fetch("http://localhost:5033/api/products");
-        if (!res.ok) throw new Error("Catalog service unavailable");
+        const res = await fetch("http://localhost:5033/api/products", {
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          throw new Error("Catalog service unavailable");
+        }
+
         const data = await res.json();
         setBanner(data.banner);
         setProducts(data.curated);
         setStatus("ready");
       } catch (error) {
-        console.error(error);
-        setStatus("error");
+        if (error.name !== "AbortError") {
+          console.error(error);
+          setStatus("error");
+        }
       }
     }
+
     fetchCatalog();
+
+    return () => controller.abort();
   }, []);
 
   const categories = useMemo(
-    () =>
-      Array.from(new Set(products.map((product) => product.category))).slice(0, 4),
+    () => ["all", ...new Set(products.map((product) => product.category))],
     [products],
   );
+
+  const priceBuckets = useMemo(() => createPriceBuckets(products), [products]);
+
+  const selectedPriceBucket = useMemo(
+    () =>
+      selectedPriceBucketId === "all"
+        ? null
+        : priceBuckets.find((bucket) => bucket.id === selectedPriceBucketId) ?? null,
+    [priceBuckets, selectedPriceBucketId],
+  );
+
+  const visibleProducts = useMemo(() => {
+    const filteredProducts = filterProducts(products, {
+      category: selectedCategory,
+      priceBucket: selectedPriceBucket,
+    });
+
+    return sortProducts(filteredProducts, sortOrder);
+  }, [products, selectedCategory, selectedPriceBucket, sortOrder]);
+
+  const cartQuantity = useMemo(() => getCartQuantity(cart), [cart]);
+
+  const statusLabel =
+    status === "loading"
+      ? "Loading curated catalogue..."
+      : status === "error"
+        ? "Backend unavailable. Start the catalog API to browse live products."
+        : banner || `${products.length} festive picks ready`;
+
+  const handleCartUpdate = (productId, nextQuantity) => {
+    setCart((currentCart) => updateCartQuantity(currentCart, productId, nextQuantity));
+  };
 
   return (
     <div className="app-shell">
       <header className="main-header">
-        <div className="logo">Bazaar India</div>
+        <div className="header-brand">
+          <div className="logo">Bazaar India</div>
+          <p>Festival-first fashion storefront</p>
+        </div>
+
         <nav>
           {navLinks.map((link) => (
             <a key={link.href} href={link.href}>
@@ -82,91 +127,215 @@ function App() {
             </a>
           ))}
         </nav>
-        <button className="primary-btn">Login · Explore</button>
+
+        <div className="header-actions">
+          <button type="button" className="cart-btn" aria-label="Cart">
+            <span className="cart-icon" aria-hidden="true">
+              🛍
+            </span>
+            <span>Cart</span>
+            <span className="cart-badge">{cartQuantity}</span>
+          </button>
+          <button type="button" className="primary-btn">Login · Explore</button>
+        </div>
       </header>
 
       <main>
-        <section className="hero" id="collections">
-          <div className="hero-content">
-            <p className="eyebrow">Inspired by Myntra · Built for India</p>
-            <h1>
-              Curated festival drops, local craftsmanship, and fast delivery
-              signals for every city.
-            </h1>
-            <p className="hero-description">
-              React components fetch the catalog from a Node/Express API, apply
-              formatting logic server-side, and render generous cards built with
-              responsive grids and accessible buttons.
-            </p>
-            <div className="hero-actions">
-              <button className="primary-btn">View Festive Drop</button>
-              <button className="ghost-btn">Inspect Architecture</button>
-            </div>
-            <div className="hero-highlights">
-              <span>{banner}</span>
-              <span>Cash on Delivery | Metro same-day</span>
-            </div>
-          </div>
-          <div className="hero-panel">
-            <div className="hero-panel-card">
-              <p className="small">Status</p>
-              <strong>
-                {status === "loading"
-                  ? "Loading catalog..."
-                  : status === "error"
-                  ? "Catalog unreachable"
-                  : `${products.length} curated picks`}
-              </strong>
-              <p className="small">
-                Fetches from http://localhost:5033/api/products
-              </p>
-            </div>
-          </div>
-        </section>
+        <HeroCarousel slides={festivalSlides} statusLabel={statusLabel} />
 
-        <section className="category-panel">
+        <section className="category-panel" id="categories">
           <h2>Live categories</h2>
           <div className="category-grid">
-            {(categories.length ? categories : ["Ethnic", "Western", "Gadgets", "Beauty"]).map(
-              (category) => (
+            {categories
+              .filter((category) => category !== "all")
+              .map((category) => (
                 <article key={category}>
                   <h3>{category}</h3>
-                  <p>Rich, curated feeds with server-groomed pricing.</p>
+                  <p>
+                    {
+                      products.filter((product) => product.category === category)
+                        .length
+                    }{" "}
+                    curated picks in the live catalog.
+                  </p>
                 </article>
-              ),
-            )}
+              ))}
           </div>
         </section>
 
-        <section className="products-section">
+        <section className="products-section" id="products">
           <div className="products-header">
             <div>
               <h2>Product spotlight</h2>
-              <p>Backend returns formatted prices and delivery commitments.</p>
+              <p>Dynamic filters, local artwork, and inline cart actions on every item card.</p>
             </div>
             <div className="status-pill">
               {status === "ready"
-                ? `Serving ${products.length} unique SKUs`
+                ? `Showing ${visibleProducts.length} of ${products.length} SKUs`
                 : "Waiting for catalog"}
             </div>
           </div>
+
+          <div className="toolbar">
+            <div className="toolbar-group">
+              <button
+                type="button"
+                className="toolbar-btn"
+                onClick={() => {
+                  setFilterPanelOpen((open) => !open);
+                  setSortPanelOpen(false);
+                }}
+              >
+                Filter
+              </button>
+              {filterPanelOpen && (
+                <div className="toolbar-panel">
+                  <div className="toolbar-section">
+                    <h3>Category</h3>
+                    <div className="option-group">
+                      {categories.map((category) => (
+                        <button
+                          key={category}
+                          type="button"
+                          className={
+                            selectedCategory === category ? "option-chip active" : "option-chip"
+                          }
+                          onClick={() => setSelectedCategory(category)}
+                        >
+                          {category === "all" ? "All categories" : category}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="toolbar-section">
+                    <h3>Price range</h3>
+                    <div className="option-group">
+                      <button
+                        type="button"
+                        className={
+                          selectedPriceBucketId === "all" ? "option-chip active" : "option-chip"
+                        }
+                        onClick={() => setSelectedPriceBucketId("all")}
+                      >
+                        All prices
+                      </button>
+                      {priceBuckets.map((bucket) => (
+                        <button
+                          key={bucket.id}
+                          type="button"
+                          className={
+                            selectedPriceBucketId === bucket.id
+                              ? "option-chip active"
+                              : "option-chip"
+                          }
+                          onClick={() => setSelectedPriceBucketId(bucket.id)}
+                        >
+                          {bucket.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="text-btn"
+                    onClick={() => {
+                      setSelectedCategory("all");
+                      setSelectedPriceBucketId("all");
+                    }}
+                  >
+                    Clear filters
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div className="toolbar-group">
+              <button
+                type="button"
+                className="toolbar-btn"
+                onClick={() => {
+                  setSortPanelOpen((open) => !open);
+                  setFilterPanelOpen(false);
+                }}
+              >
+                Sort
+              </button>
+              {sortPanelOpen && (
+                <div className="toolbar-panel compact">
+                  <div className="option-group vertical">
+                    <button
+                      type="button"
+                      className={
+                        sortOrder === SORT_OPTIONS.FEATURED ? "option-chip active" : "option-chip"
+                      }
+                      onClick={() => setSortOrder(SORT_OPTIONS.FEATURED)}
+                    >
+                      Featured
+                    </button>
+                    <button
+                      type="button"
+                      className={
+                        sortOrder === SORT_OPTIONS.PRICE_DESC
+                          ? "option-chip active"
+                          : "option-chip"
+                      }
+                      onClick={() => setSortOrder(SORT_OPTIONS.PRICE_DESC)}
+                    >
+                      Price: High to low
+                    </button>
+                    <button
+                      type="button"
+                      className={
+                        sortOrder === SORT_OPTIONS.PRICE_ASC
+                          ? "option-chip active"
+                          : "option-chip"
+                      }
+                      onClick={() => setSortOrder(SORT_OPTIONS.PRICE_ASC)}
+                    >
+                      Price: Low to high
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
           {status === "error" && (
-            <p className="status-text">Please start the backend (`npm start`).</p>
+            <p className="status-text">Please start the backend with `npm start` in `/backend`.</p>
           )}
+
           <div className="product-grid" id="stories">
-            {status === "loading" && <div className="status-text">Loading products…</div>}
-            {status === "ready" && products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {status === "loading" && <div className="status-text">Loading products...</div>}
+            {status === "ready" && visibleProducts.length === 0 && (
+              <div className="empty-state">
+                <h3>No items match these filters</h3>
+                <p>Try clearing one of the filters or switching the price bucket.</p>
+              </div>
+            )}
+            {status === "ready" &&
+              visibleProducts.map((product) => {
+                const quantity = getProductQuantity(cart, product.id);
+
+                return (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    quantity={quantity}
+                    onAdd={() => handleCartUpdate(product.id, quantity + 1)}
+                    onIncrement={() => handleCartUpdate(product.id, quantity + 1)}
+                    onDecrement={() => handleCartUpdate(product.id, quantity - 1)}
+                    onRemove={() => handleCartUpdate(product.id, 0)}
+                  />
+                );
+              })}
           </div>
         </section>
 
-        <section className="tech-section" id="architecture">
+        <section className="tech-section">
           <h2>System map & telemetry</h2>
           <p className="hero-description">
-            Leverage this layout to document front-end hierarchy, backend APIs,
-            and how they integrate with observability pipelines in larger
-            repositories.
+            The store now keeps catalog data server-driven while filter, sort, carousel, image fallback,
+            and cart quantity logic stay in lightweight client helpers.
           </p>
           <div className="tech-grid">
             {architecturePillars.map((pillar) => (
@@ -182,15 +351,15 @@ function App() {
       <footer className="main-footer" id="docs">
         <div>
           <h4>Docs</h4>
-          <p>Check `/frontend/src/App.jsx`, `/backend/index.js`, and this folder&apos;s README.</p>
+          <p>Review `frontend/src/App.jsx`, the new `components/` files, and `frontend/src/storefront.js`.</p>
         </div>
         <div>
           <h4>Next steps</h4>
-          <p>Run `npm run dev` (frontend) while `npm start` powers the API, then load `http://localhost:5133`.</p>
+          <p>Run the backend on `http://localhost:5033`, then open the Vite app to verify filters, banner rotation, and cart state.</p>
         </div>
         <div>
-          <h4>Contact</h4>
-          <p>Mentor notes live under `modules/module4/top-up-ideas/docs`.</p>
+          <h4>Catalog source</h4>
+          <p>The Express API now includes `imageKey` values so local storefront art stays consistent.</p>
         </div>
       </footer>
     </div>
