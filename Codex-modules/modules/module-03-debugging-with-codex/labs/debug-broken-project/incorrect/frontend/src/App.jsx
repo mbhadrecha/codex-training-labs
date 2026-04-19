@@ -1,6 +1,6 @@
 ﻿import { useState } from "react";
 
-const AUTH_ENDPOINT = "http://localhost:5033/login";
+const AUTH_ENDPOINT = "http://localhost:5034/login";
 
 export default function App() {
   const [userId, setUserId] = useState("");

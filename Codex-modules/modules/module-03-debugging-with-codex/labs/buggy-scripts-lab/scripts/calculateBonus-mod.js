@@ -10,7 +10,8 @@ const BONUS_RATES = {
 };
 
 function calculateBonus(amount, level) {
-  return amount * BONUS_RATES[level];
+  const rate = BONUS_RATES[level] ?? BONUS_RATES.medium;
+  return amount * rate;
 }
 
 const payout = calculateBonus(salary, performance);
