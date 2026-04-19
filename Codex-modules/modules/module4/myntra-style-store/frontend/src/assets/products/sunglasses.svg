@@ -1,0 +1,17 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" rx="48" fill="#F5F7EF"/>
+  <rect x="81" y="99" width="798" height="522" rx="44" fill="#E8EDD5"/>
+  <path d="M269 389C269 338 310 297 361 297H429C480 297 521 338 521 389V420C521 471 480 512 429 512H361C310 512 269 471 269 420V389Z" fill="#171A1F"/>
+  <path d="M439 389C439 338 480 297 531 297H599C650 297 691 338 691 389V420C691 471 650 512 599 512H531C480 512 439 471 439 420V389Z" fill="#171A1F"/>
+  <path d="M523 374H437" stroke="#171A1F" stroke-width="16" stroke-linecap="round"/>
+  <path d="M269 337L188 296" stroke="#171A1F" stroke-width="16" stroke-linecap="round"/>
+  <path d="M691 337L772 296" stroke="#171A1F" stroke-width="16" stroke-linecap="round"/>
+  <ellipse cx="396" cy="403" rx="89" ry="72" fill="url(#lens)"/>
+  <ellipse cx="566" cy="403" rx="89" ry="72" fill="url(#lens)"/>
+  <defs>
+    <linearGradient id="lens" x1="307" y1="331" x2="474" y2="475" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5A6472"/>
+      <stop offset="1" stop-color="#1C212A"/>
+    </linearGradient>
+  </defs>
+</svg>
